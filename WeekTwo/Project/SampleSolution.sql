@@ -60,11 +60,11 @@ with
             and customer_info.customer_state = city_reference.state_abbr
         join customer_preferences on customer_info.customer_id = customer_preferences.customer_id
         where (customer_state = 'KY'
-                and (customer_city ilike '%concord%' or customer_city ilike '%georgetown%' or customer_city ilike '%ashland%'))
+                and customer_city in ('CONCORD', 'GEORGETOWN', 'ASHLAND'))
             or (customer_state = 'CA' 
-                and (customer_city ilike '%oakland%' or customer_city ilike '%pleasant hill%'))
+                and customer_city in ('OAKLAND', 'PLEASANT HILL'))
             or (customer_state = 'TX' 
-                and (customer_city ilike '%arlington%' or customer_city ilike '%brownsville%'))
+                and customer_city in ('ARLINGTON', 'BROWNSVILLE'))
     )
 
 select
